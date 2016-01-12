@@ -76,13 +76,14 @@ class LinkedList
   end
 
 	def reverse
-		counter = self.length
+    #Use two loops
+		counter = self.length 
 		new_list = LinkedList.new
 		while counter >= 1
 			current_node = get_last
 			new_list.add_node(get_last.data)
       if counter > 1 
-			 remove_node(counter)
+			 remove_node(counter - 1)
       end
 			counter -= 1
 		end
