@@ -1,6 +1,9 @@
+require_relative "./stacks.rb"
+require 'byebug'
+
 Node = Struct.new(:data, :next)
 
-class LinkedList
+class LinkedList 
 
   attr_accessor :head, :last
 
@@ -74,17 +77,20 @@ class LinkedList
 	def reverse
 		counter = self.length
 		new_list = LinkedList.new
-		while counter > 0
-			current_node = get_last	
-			new_list.add_node(current_node.data)		
-			remove_node(self.length)
+		while counter >= 1
+			current_node = get_last
+			new_list.add_node(get_last.data)
+      puts "#{counter}"	
+      if counter > 1 
+			 remove_node(counter - 1)
+      end
 			counter -= 1
 		end
 		new_list
 	end
 
 	def get_last
-		current_node = @head
+    current_node = @head
 		loop do
 			return current_node if current_node.next.nil?
 			current_node = current_node.next
@@ -92,7 +98,7 @@ class LinkedList
 	end
 
 	def length
-		counter = 0
+		counter = 1
 		current_node = @head
 		while !current_node.next.nil?
 			current_node = current_node.next
@@ -103,11 +109,17 @@ class LinkedList
 end
 
 
+#make a new Stack instance
+# stack.push(current_node)
+#new_list.push(current_node)
+
+
 link = LinkedList.new
 link.add_node("first")
 link.add_node("second")
 link.add_node("third")
-print "Printing list: #{link.print_list}"
+puts link.length
+# print "Printing list: #{link.print_list}"
 print "Reverse: #{link.reverse}"
-print "Printing list: #{link.print_list}"
-print link.length
+# print "Printing list: #{link.print_list}"
+# print link.length
