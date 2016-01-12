@@ -6,10 +6,12 @@ Node = Struct.new(:data, :next)
 class LinkedList 
 
   attr_accessor :head, :last
+  attr_reader :length
 
   def initialize(first_node = nil)
     @head = first_node
     @last = first_node
+    @length = 0
   end
 
   def add_first_node(data)
@@ -25,9 +27,8 @@ class LinkedList
       new_node = Node.new(data)
       @last.next = new_node
       @last = new_node
-
     end
-
+    @length += 1
     puts "Added node with value: #{data}"
   end
 
@@ -46,7 +47,7 @@ class LinkedList
     next_node = current_node.next
     current_node.next = nil       # clear the pointer
     prev_node.next = next_node
-
+    @length -= 1
     puts "Removed node at index #{index} with value: #{current_node.data}"
   end
 
@@ -80,9 +81,8 @@ class LinkedList
 		while counter >= 1
 			current_node = get_last
 			new_list.add_node(get_last.data)
-      puts "#{counter}"	
       if counter > 1 
-			 remove_node(counter - 1)
+			 remove_node(counter)
       end
 			counter -= 1
 		end
@@ -91,21 +91,21 @@ class LinkedList
 
 	def get_last
     current_node = @head
-		loop do
-			return current_node if current_node.next.nil?
-			current_node = current_node.next
+		until current_node.next.nil?
+      current_node = current_node.next
 		end
+    current_node
 	end
 
-	def length
-		counter = 1
-		current_node = @head
-		while !current_node.next.nil?
-			current_node = current_node.next
-			counter += 1
-		end
-		counter
-	end
+	# def length
+	# 	counter = 1
+	# 	current_node = @head
+	# 	while !current_node.next.nil?
+	# 		current_node = current_node.next
+	# 		counter += 1
+	# 	end
+	# 	counter
+	# end
 end
 
 
