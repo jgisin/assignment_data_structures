@@ -13,6 +13,7 @@ attr_accessor :array
 	end
 
 	def pop
+		return if empty?
 		@array -= [@array[@array.length - 1]]
 	end
 

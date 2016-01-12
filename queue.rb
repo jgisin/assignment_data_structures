@@ -13,7 +13,9 @@ attr_accessor :array
   end
 
   def dequeue
+  	#will remove duplicate values
     @array -= [@array[0]]
+    #rebuild new array
   end
 
   def peek
