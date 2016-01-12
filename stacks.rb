@@ -25,11 +25,7 @@ attr_accessor :array
 	end
 
 	def empty?
-		if @array == [] || @array == nil
-			return true
-		else
-			return false
-		end
+		@array == [] || @array == nil ? true : false
 	end
 
 end
