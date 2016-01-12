@@ -115,12 +115,12 @@ end
 #new_list.push(current_node)
 
 
-link = LinkedList.new
-link.add_node("first")
-link.add_node("second")
-link.add_node("third")
-puts link.length
-# print "Printing list: #{link.print_list}"
-print "Reverse: #{link.reverse}"
-# print "Printing list: #{link.print_list}"
-# print link.length
+# link = LinkedList.new
+# link.add_node("first")
+# link.add_node("second")
+# link.add_node("third")
+# puts link.length
+# # print "Printing list: #{link.print_list}"
+# print "Reverse: #{link.reverse}"
+# # print "Printing list: #{link.print_list}"
+# # print link.length
